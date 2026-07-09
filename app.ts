@@ -2,7 +2,7 @@ import exp from 'express';
 const app: exp.Application = exp();
 
 app.get('/', (req: exp.Request, res: exp.Response) => {
-    res.send('Hello, World!');
+    res.send('Helhghghgl');
 })
 
 app.listen(3000, () => {
