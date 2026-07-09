@@ -30,4 +30,5 @@ npm install axios->send request to keyclock server
 npm install dotenv->It get value from env helps
  
  #deployment
+  docker build --no-cache .
 
