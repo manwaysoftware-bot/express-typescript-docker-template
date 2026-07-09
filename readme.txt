@@ -10,7 +10,10 @@ npx tsc && node $dir$fileNameWithoutExt.js->add in coderunner config or  ts-node
 warning:typescript file inside cannot import another ts file
 
 #express 
+create app.ts ->enter file
 npm install express->express instaltization
+npm install -save-dev @types/express->add type expess
+ECMAScript->change package.json type:"module"
 npm install nodemon->Made changes without stop server
  "server": "nodemon --watch . --ignore dist --ext ts --exec \"npx tsc && node dist/app.js\""->package.json
  ->nodemon run on ts files also
