@@ -2,6 +2,9 @@
 //Any annotation only applicale classes proprtirs and function only can applicable
 //Also that class have same strture .that means class have same function names conains.and class property not contains contains with simlar name a
 //All declarater before propejct run assened
+
+import { LogErrors } from "./aop.js";
+
 //Class level annotation
 function classdec(cls:any){
         return A
@@ -19,7 +22,6 @@ class A{
     a(){
 
     }
-
 }
 
 @classdec
@@ -56,36 +58,46 @@ class C{
 
 
 //Propery level
-let values=new WeakMap<any,any>();
-function propdec(target:any,propertyKey:any){
+// let values=new WeakMap<any,any>();
+// function propdec(target:any,propertyKey:any){
 
 
 
-    Object.defineProperty(target,propertyKey,{
-        //dont use arrow function
-        set:function(val:any){
-            values.set(this,val);
-        },
-        get:function(){
-            return values.get(this)||"ragul";
-        },
-        enumerable:true,
-        configurable:true
-    })
-}
+//     Object.defineProperty(target,propertyKey,{
+//         //dont use arrow function
+//         set:function(val:any){
+//             values.set(this,val);
+//         },
+//         get:function(){
+//             return values.get(this)||"ragul";
+//         },
+//         enumerable:true,
+//         configurable:true
+//     })
+// }
 
+
+@LogErrors()
 class D{
 
-    @propdec
+    
     declare name:string|undefined;
 
      constructor(){
-        console.log("c")
+        console.log("d")
     }
 
+    @LogErrors()
     a(){
-
+         throw Error("Hello")
+        
     }
-
 
 }
+
+new D().a()
+
+
+
+
+
