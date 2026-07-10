@@ -7,7 +7,10 @@ config->ts config outdir:"dist" ,"exclude": ["node_modules", "dist", "coverage"]
 git init
 .gitignore file create add-> ["node_modules", "dist", "coverage"]
 npx tsc && node $dir$fileNameWithoutExt.js->add in coderunner config or  ts-node -directly run ts without transpile
+npm i @aspectj/core@ aspectj/common->Aop
 warning:typescript file inside cannot import another ts file
+warning:if use decorator @sample() dont write()
+
 
 #express 
 npm install express->express instaltization
