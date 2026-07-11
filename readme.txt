@@ -29,9 +29,13 @@ npm install nodemon->Made changes without stop server
   "exec": "npx tsc && node dist/app.js"
 }
 npx nodemon->run with nodemon ts
- npm install morgan->logging the hole express requires
+using wingston and middleware save every sucess and failue responce
 npm install axios->send request to keyclock server
 npm install dotenv->It get value from env helps
- 
+some time server stop after also possible run our backend so if run use taskmanager stop that
+
+create aop folder save aop.ts all middlerwares of project global exception handle when request handleing 
+logger folder in aop folder automatically create bu wington if not create configre in wingston  
+
  #deployment
 

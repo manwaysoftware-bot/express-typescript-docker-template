@@ -1,25 +1,22 @@
 import * as winston from 'winston';
 
 //Aop
-const logger = winston.createLogger({
+export const logger = winston.createLogger({
     level: 'info',
     format: winston.format.json(),
     transports: [
         new winston.transports.Console(),
-        new winston.transports.File({ filename: 'logger/combined.log' })
+        new winston.transports.File({ filename: 'aop/logger/combined.log' })
     ]
 });
 
-const erLoger = winston.createLogger({
+export const erLoger = winston.createLogger({
     level: 'error',
     format: winston.format.json(),
     transports: [
         new winston.transports.Console(),
-        new winston.transports.File({ filename: 'logger/error.log' })
+        new winston.transports.File({ filename: 'aop/logger/error.log' })
     ]
 });
-
-logger.info("sample")
-erLoger.error("sample")
 
 
