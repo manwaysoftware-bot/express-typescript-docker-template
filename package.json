@@ -20,6 +20,7 @@
     "express": "^5.2.1",
     "nodemon": "^3.1.14",
     "@aspectjs/common": "^0.5.4",
-    "@aspectjs/core": "^0.5.4"
+    "@aspectjs/core": "^0.5.4",
+    "winston": "^3.19.0"
   }
 }
