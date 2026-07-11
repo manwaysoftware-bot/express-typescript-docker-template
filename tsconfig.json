@@ -23,6 +23,8 @@
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+    "experimentalDecorators":true,
+    "useDefineForClassFields":true,
 
     // Style Options
     // "noImplicitReturns": true,
@@ -40,6 +42,7 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
+    "rootDir":"./",
     "outDir": "./dist",
   }
   ,"exclude": ["node_modules", "dist", "coverage"]

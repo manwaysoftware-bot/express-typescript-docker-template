@@ -7,7 +7,11 @@ config->ts config outdir:"dist" ,"exclude": ["node_modules", "dist", "coverage"]
 git init
 .gitignore file create add-> ["node_modules", "dist", "coverage"]
 npx tsc && node $dir$fileNameWithoutExt.js->add in coderunner config or  ts-node -directly run ts without transpile
+npm i @aspectj/core@ aspectj/common->Aop
+npm install wingston->logger
 warning:typescript file inside cannot import another ts file
+warning:if use decorator @sample() dont write()
+
 
 #express 
 create app.ts ->enter file
@@ -25,10 +29,14 @@ npm install nodemon->Made changes without stop server
   "exec": "npx tsc && node dist/app.js"
 }
 npx nodemon->run with nodemon ts
- npm install morgan->logging the hole express requires
+using wingston and middleware save every sucess and failue responce
 npm install axios->send request to keyclock server
 npm install dotenv->It get value from env helps
- 
+some time server stop after also possible run our backend so if run use taskmanager stop that
+
+create aop folder save aop.ts all middlerwares of project global exception handle when request handleing 
+logger folder in aop folder automatically create bu wington if not create configre in wingston  
+
  #deployment
   docker build --no-cache .
 
