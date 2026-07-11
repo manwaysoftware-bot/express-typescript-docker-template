@@ -12,6 +12,8 @@ services:
   demo:
     #Warning:docker image file any change made you should change image version other vice not create image and container
     build: .
+    ports:
+      - "3000:3000"
   keyclock:
     image: quay.io/keycloak/keycloak:latest
     # container_name: keycloak
