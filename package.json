@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@aspectjs/common": "^0.5.4",
-    "@aspectjs/core": "^0.5.4"
+    "@aspectjs/core": "^0.5.4",
+    "winston": "^3.19.0"
   }
 }
