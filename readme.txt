@@ -37,6 +37,7 @@ npm install nodemon->Made changes without stop server
 npx nodemon->run with nodemon ts
 using wingston and middleware save every sucess and failue responce
 npm install axios->send request to keyclock server
+create .env file add port number
 npm install dotenv->It get value from env helps
 some time server stop after also possible run our backend so if run use taskmanager stop that
 
