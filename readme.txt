@@ -6,6 +6,12 @@ npx tsc --init ->install typescript config
 config->ts config outdir:"dist" ,"exclude": ["node_modules", "dist", "coverage"](this files not transpile),
 git init
 .gitignore file create add-> ["node_modules", "dist", "coverage"]
+ package json->npx tsc ;node dist/sample.js like commant create shour cut .is helps run eassily
+ but using here remove ; use && like bellow
+ "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ragul" "npx tsc &&node dist/sample.js"->run using npm run ragul 
+  }
 npx tsc && node $dir$fileNameWithoutExt.js->add in coderunner config or  ts-node -directly run ts without transpile
 npm i @aspectj/core@ aspectj/common->Aop
 npm install wingston->logger
