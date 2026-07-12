@@ -11,7 +11,11 @@ services:
   #service name
   demo:
     #Warning:docker image file any change made you should change image version other vice not create image and container
-    build: .
+    build: 
+      context: .
+      #args give specially like ${developerName} env variable for .env
+      args:
+        - developerName=${developerName}
     #this provide docker file builded image name.
     #without build command use this automatically search image name on local the docker hub.if not avaiable gives error
     image: "demo-ragul:2.0.0"

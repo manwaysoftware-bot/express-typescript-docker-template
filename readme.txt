@@ -44,6 +44,7 @@ create aop folder save aop.ts all middlerwares of project global exception handl
 logger folder in aop folder automatically create bu wington if not create configre in wingston  
 
  #deployment
+  docker command all FROM COPY RUN should be captial letter and also connct internet
   1.docker all run container use only local envirmentenal run only.same docker image same source and same account
 using differnt computer is act like different application run.like andriod app install your mobile standlonly work on 
 your application
@@ -51,3 +52,6 @@ your application
   
   3.kubernates is not service provider.open source container Orchestration.is used is mange mutiply container in deployment.
     a.create kubernates cluser->cluster 
+  4.pass the arugs       
+  args:
+        - developerName=new-0017 

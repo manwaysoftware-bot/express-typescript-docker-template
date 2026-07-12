@@ -11,12 +11,13 @@ FROM node:18-alpine
 #her gives args using this during docker image build can run using commant 
 #this args bellow from command comes.others vice not works
 #give this during run time->docker build .(path of image) --build-arg version=test-255
-ARG version=test-001
+ARG version=test-005
+ARG developerName=ragul
 
 
 # Copy package files and install production dependencies
 COPY package.json package.json 
-Copy package-lock.json package-lock.json 
+COPY package-lock.json package-lock.json 
 #npm ci simplar npm install but npm ci use run using packeage-lock.json  is best for production state
 # RUN npm install
 RUN npm ci --only=production
@@ -35,7 +36,7 @@ ENTRYPOINT ["node", "dist/app.js"]
 
 #Image Config
 # Label  is meta its only provide to addtional infromation .It is not affected anytime docker image build
-LABEL authors="ragul"
+LABEL authors=${developerName}
 LABEL version=${version}
 #It is also another metadata is not also not affected our proprgram
 #It is only recoommend run this app which port number run
