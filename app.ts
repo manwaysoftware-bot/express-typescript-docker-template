@@ -17,7 +17,7 @@ res.status(400).json("hello")
 
 
 app.listen(server.port, () => {
-    console.log('Server is running on http://localhost:'+server.port);
+    console.log('Server is running on http://localhost:'+JSON.stringify(server));
 } )      
 
 //added here keps this as a last line

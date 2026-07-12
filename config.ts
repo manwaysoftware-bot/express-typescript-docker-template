@@ -3,11 +3,18 @@ import dotenv from 'dotenv'
 //important this line
 dotenv.config();
 
-type ServerConfig={
+type ProjectConfig={
+    developerName:string|undefined
+    serviceName:string|undefined
+    version:string|undefined
     port:string|undefined
+  
 }
 
-export let server:ServerConfig={
-    port:process.env.port
+export let server:ProjectConfig={
+    developerName:process.env.developerName||'none',
+    serviceName:process.env.serviceName||'none',
+    version:process.env.version||'latest',
+    port:process.env.port||"5678",
 }
 

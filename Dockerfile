@@ -11,8 +11,9 @@ FROM node:18-alpine
 #her gives args using this during docker image build can run using commant 
 #this args bellow from command comes.others vice not works
 #give this during run time->docker build .(path of image) --build-arg version=test-255
-ARG version=test-005
+ARG version=latest
 ARG developerName=ragul
+ARG port=5678
 
 
 # Copy package files and install production dependencies
@@ -27,7 +28,6 @@ RUN npm ci --only=production
 COPY dist ./dist
 
 # Expose port and run the compiled app (package.json contains "type": "module")
-EXPOSE 3000
 ENTRYPOINT ["node", "dist/app.js"]
 
 # Usage:
@@ -41,7 +41,7 @@ LABEL version=${version}
 #It is also another metadata is not also not affected our proprgram
 #It is only recoommend run this app which port number run
 #docker run -p {portnumber}->Expose port numer keps recommeded
-EXPOSE 3000
+EXPOSE ${port}
 #docker build .->build the image
 #docker image->get the list of images and check
 #docker inspect{imageId/imagename}->give metadata of images

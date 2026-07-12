@@ -56,3 +56,19 @@ your application
   4.pass the arugs       
   args:
         - developerName=new-0017 
+  5.give image name also serviceName container c serviceName:version also this version metion in dot env
+  service change dotenv is label purpose only.you always metion in docker composer
+   demo:->service name
+    #Warning:docker image file any change made you should change image version other vice not create image and container
+    build: 
+      context: .
+      #args give specially like ${developerName} env variable for .env
+      args:
+        - developerName=${developerName}
+    #this provide docker file builded image name.
+    #without build command use this automatically search image name on local the docker hub.if not avaiable gives error
+    image: "demo-ragul:2.0.0"
+    container_name: "ragul"
+    ports:
+      - "3000:3000"->$port:$port 
+    note:docker compose image cannot change when using image name        

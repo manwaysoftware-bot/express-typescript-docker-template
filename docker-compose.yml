@@ -9,42 +9,47 @@ version: '3.8'
 services:
   #Each 
   #service name
-  demo:
+  centerl:
     #Warning:docker image file any change made you should change image version other vice not create image and container
     build: 
       context: .
-      #args give specially like ${developerName} env variable for .env
+      #args give specially like ${developerName} env variable for .env this devlper name via arus tranfer to docker image
       args:
         - developerName=${developerName}
+        - version=${version}
     #this provide docker file builded image name.
     #without build command use this automatically search image name on local the docker hub.if not avaiable gives error
-    image: "demo-ragul:2.0.0"
-    container_name: "ragul"
+    image: "${serviceName}:${version}"
+    #here only can use -
+    container_name: "${serviceName}-${version}"
+    #warning: carful same time dev container run give error in docker reason both are run to try same port number
     ports:
-      - "3000:3000" 
-  # keyclock:
-  #   image: quay.io/keycloak/keycloak:latest
-  #   # container_name: keycloak
-  #   #commond for during running conatiner.its control envrioment(prod,dev) or database change or config mode change
-  #   # example you ave config 1,config 2,config 3 both 3 are run without  
-  #   command: start-dev
-  #   environment:
-  #     # Database configuration (example using internal H2 for dev, replace with Postgres for production)
-  #     #dev-mem internal memmory
-  #     KC_DB: dev-mem
+      - "${port}:${port}" 
+  keyclock:
+    #cannot rename this imagename.reason this is pulled by image name
+    image: quay.io/keycloak/keycloak:latest
+    container_name: "keyclock"
+    # container_name: keycloak
+    #commond for during running conatiner.its control envrioment(prod,dev) or database change or config mode change
+    # example you ave config 1,config 2,config 3 both 3 are run without  
+    command: start-dev
+    environment:
+      # Database configuration (example using internal H2 for dev, replace with Postgres for production)
+      #dev-mem internal memmory
+      KC_DB: dev-mem
       
-  #     # Admin credentials
-  #     KEYCLOAK_ADMIN: admin
-  #     KEYCLOAK_ADMIN_PASSWORD: 1234
+      # Admin credentials
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: 1234
       
-  #     # URL configuration
-  #     KC_HOSTNAME: localhost
-  #     #external port unick for each container can customiple .without external port that app only container inside.that inside can see only that terminal console can see
-  #     ## without external port using container ip only send requset server 
-  #     #internal port image provider give option only can change(in express app.listnen port) 
-  #     #this caller port mapping
-  #   ports:
-  #     - "8080:8080"
-  #   restart: unless-stopped
+      # URL configuration
+      KC_HOSTNAME: localhost
+      #external port unick for each container can customiple .without external port that app only container inside.that inside can see only that terminal console can see
+      ## without external port using container ip only send requset server 
+      #internal port image provider give option only can change(in express app.listnen port) 
+      #this caller port mapping
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
 
 
