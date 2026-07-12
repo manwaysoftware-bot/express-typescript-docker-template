@@ -3,9 +3,16 @@
 # Docker Desktop Definity before build image ->do you enable this open docker desktop app .and also in system tray that is running right side click icon click show the docker icon
 #BASE IMAGE
 
+
 #Project Docker Config
 # Use Node 18 alpine
 FROM node:18-alpine
+
+#her gives args using this during docker image build can run using commant 
+#this args bellow from command comes.others vice not works
+#give this during run time->docker build .(path of image) --build-arg version=test-255
+ARG version=test-001
+
 
 # Copy package files and install production dependencies
 COPY package.json package.json 
@@ -29,7 +36,7 @@ ENTRYPOINT ["node", "dist/app.js"]
 #Image Config
 # Label  is meta its only provide to addtional infromation .It is not affected anytime docker image build
 LABEL authors="ragul"
-LABEL version="1.0.0"
+LABEL version=${version}
 #It is also another metadata is not also not affected our proprgram
 #It is only recoommend run this app which port number run
 #docker run -p {portnumber}->Expose port numer keps recommeded
