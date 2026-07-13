@@ -15,6 +15,7 @@ git init
 npx tsc && node $dir$fileNameWithoutExt.js->add in coderunner config or  ts-node -directly run ts without transpile
 npm i @aspectj/core@ aspectj/common->Aop
 npm install wingston->logger
+add port,enviroment,developerName,servicename,version
 warning:typescript file inside cannot import another ts file
 warning:if use decorator @sample() dont write()
 

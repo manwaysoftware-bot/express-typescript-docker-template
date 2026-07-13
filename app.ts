@@ -1,7 +1,7 @@
 import exp from 'express';
 import { globalErrorHandler, resInterspector } from './aop/aop.js';
 import { error } from 'node:console';
-import { server } from './config.js';
+import { server,environment } from './config.js';
 const app: exp.Application = exp();
 
 //add this first line
@@ -14,10 +14,8 @@ res.status(400).json("hello")
     
 })
 
-
-
 app.listen(server.port, () => {
-    console.log('Server is running on http://localhost:'+JSON.stringify(server));
+    console.log('Server is running on http://localhost:'+JSON.stringify(server)+"environement:"+environment);
 } )      
 
 //added here keps this as a last line

@@ -11,6 +11,8 @@ type ProjectConfig={
   
 }
 
+export const environment=process.env.environment
+
 export let server:ProjectConfig={
     developerName:process.env.developerName||'none',
     serviceName:process.env.serviceName||'none',
