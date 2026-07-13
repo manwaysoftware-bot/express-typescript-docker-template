@@ -15,6 +15,6 @@ export let server:ProjectConfig={
     developerName:process.env.developerName||'none',
     serviceName:process.env.serviceName||'none',
     version:process.env.version||'latest',
-    port:process.env.port||"5678",
+    port:process.env.port||"1000",
 }
 

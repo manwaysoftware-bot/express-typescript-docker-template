@@ -60,6 +60,7 @@ your application
   service change dotenv is label purpose only.you always metion in docker composer
    demo:->service name
     #Warning:docker image file any change made you should change image version other vice not create image and container
+    3warning:docker optional flags→this optinal only gives before imagename/imagName
     build: 
       context: .
       #args give specially like ${developerName} env variable for .env
@@ -71,4 +72,10 @@ your application
     container_name: "ragul"
     ports:
       - "3000:3000"->$port:$port 
-    note:docker compose image cannot change when using image name        
+    note:docker compose image cannot change when using image name
+   5.ARG port=1000 default value also internal port number be there best reason without using docker compose run if give another port number metain used that         
+   6.docker volume create {volname/hostVolume}
+   -v flag also optinal flag so give before imagename or id
+    containerpath->this path not a computer directery path .is container path.is created by workdir command
+   example: docker run -p 1000:1000 -v sample:/app/aop/logger {imageName/imagimageid}
+    a.docker file join->during run command use-> docker run -v {volname/hostVolume}:{containerpath} {imageName/imageId}->example docker run -v ./aop/logger:sample {imageName/imageId}
