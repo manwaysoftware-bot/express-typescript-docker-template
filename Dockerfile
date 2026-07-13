@@ -25,13 +25,18 @@ COPY package-lock.json package-lock.json
 #npm ci simplar npm install but npm ci use run using packeage-lock.json  is best for production state
 # RUN npm install
 RUN npm ci --only=production
+#is must to add typerscript complaion is must also come after 
+# ... after your npm ci command ...
+#here install tsc local down command use npx tsc .is lock use RUN tsc command .but in docker container not works 
+RUN npm install typescript
 
+COPY . /app/
 
-# Copy the compiled output
-COPY dist ./dist
+RUN npx tsc
+# Now run your build
 
 # Expose port and run the compiled app (package.json contains "type": "module")
-ENTRYPOINT ["node", "dist/app.js"]
+# ENTRYPOINT ["node", "dist/app.js"]
 
 # Usage:
 # docker build -t hirekite .
@@ -45,6 +50,7 @@ LABEL version=${version}
 #It is only recoommend run this app which port number run
 #docker run -p {portnumber}->Expose port numer keps recommeded
 EXPOSE ${port}
+ENTRYPOINT ["node", "dist/app.js"]
 #docker build .->build the image
 #docker image->get the list of images and check
 #docker inspect{imageId/imagename}->give metadata of images

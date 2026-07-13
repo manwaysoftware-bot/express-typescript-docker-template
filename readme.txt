@@ -45,6 +45,7 @@ create aop folder save aop.ts all middlerwares of project global exception handl
 logger folder in aop folder automatically create bu wington if not create configre in wingston  
 
  #deployment
+ #Warnning:before run docker file your typercript project must be compile or docker RUN npx tsc 
   docker command all FROM COPY RUN should be captial letter and also connct internet
   1.docker all run container use only local envirmentenal run only.same docker image same source and same account
 using differnt computer is act like different application run.like andriod app install your mobile standlonly work on 
