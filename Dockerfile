@@ -7,13 +7,16 @@
 #Project Docker Config
 # Use Node 18 alpine
 FROM node:18-alpine
+#create folder inside container.this folder inside project create inside container.is used for creating volume metains this
+WORKDIR /app
 
 #her gives args using this during docker image build can run using commant 
 #this args bellow from command comes.others vice not works
 #give this during run time->docker build .(path of image) --build-arg version=test-255
 ARG version=latest
 ARG developerName=ragul
-ARG port=5678
+#ARG port=1000 default value also internal port number be there best reason without using docker compose run if give another port number metain used that
+ARG port=1000
 
 
 # Copy package files and install production dependencies
@@ -32,7 +35,7 @@ ENTRYPOINT ["node", "dist/app.js"]
 
 # Usage:
 # docker build -t hirekite .
-# docker run -p 3000:3000 hirekite
+# docker run -p 3000:3000 hirekite->this port number comes shuld before image name or id
 
 #Image Config
 # Label  is meta its only provide to addtional infromation .It is not affected anytime docker image build
