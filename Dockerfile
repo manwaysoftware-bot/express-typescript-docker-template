@@ -3,37 +3,62 @@
 # Docker Desktop Definity before build image ->do you enable this open docker desktop app .and also in system tray that is running right side click icon click show the docker icon
 #BASE IMAGE
 
+
 #Project Docker Config
 # Use Node 18 alpine
-FROM node:18-alpine
+FROM node:18-alpine as base
+#create folder inside container.this folder inside project create inside container.is used for creating volume metains this
+WORKDIR /app
+
+#her gives args using this during docker image build can run using commant 
+#this args bellow from command comes.others vice not works
+#give this during run time->docker build .(path of image) --build-arg version=test-255
+ARG version=latest
+ARG developerName=ragul
+#ARG port=1000 default value also internal port number be there best reason without using docker compose run if give another port number metain used that
+ARG port=1000
+
 
 # Copy package files and install production dependencies
 COPY package.json package.json 
-Copy package-lock.json package-lock.json 
+COPY package-lock.json package-lock.json 
 #npm ci simplar npm install but npm ci use run using packeage-lock.json  is best for production state
 # RUN npm install
 RUN npm ci --only=production
+#is must to add typerscript complaion is must also come after 
+# ... after your npm ci command ...
+#here install tsc local down command use npx tsc .is lock use RUN tsc command .but in docker container not works 
+RUN npm install typescript
 
+COPY . /app/
 
-# Copy the compiled output
-COPY dist ./dist
+RUN npx tsc
+# Now run your build
 
 # Expose port and run the compiled app (package.json contains "type": "module")
-EXPOSE 3000
-ENTRYPOINT ["node", "dist/app.js"]
+# ENTRYPOINT ["node", "dist/app.js"]
 
 # Usage:
 # docker build -t hirekite .
-# docker run -p 3000:3000 hirekite
+# docker run -p 3000:3000 hirekite->this port number comes shuld before image name or id
 
 #Image Config
 # Label  is meta its only provide to addtional infromation .It is not affected anytime docker image build
-LABEL authors="ragul"
-LABEL version="1.0.0"
+LABEL authors=${developerName}
+LABEL version=${version}
 #It is also another metadata is not also not affected our proprgram
 #It is only recoommend run this app which port number run
 #docker run -p {portnumber}->Expose port numer keps recommeded
-EXPOSE 3000
+EXPOSE ${port}
+# RUN Command run in during image build.is mostly used installition.npm run dev
+# CMD is used container run like npm start ,npm run dev,npx nodemon
+# stage one->Development environment
+FROM base as dev
+CMD [ "npx","nodemon"]
+# stage two->Production environment
+FROM base as stage
+ENTRYPOINT ["node", "dist/app.js"]
+
 #docker build .->build the image
 #docker image->get the list of images and check
 #docker inspect{imageId/imagename}->give metadata of images
