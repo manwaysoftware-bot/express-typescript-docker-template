@@ -79,3 +79,13 @@ your application
     containerpath->this path not a computer directery path .is container path.is created by workdir command
    example: docker run -p 1000:1000 -v sample:/app/aop/logger {imageName/imagimageid}
     a.docker file join->during run command use-> docker run -v {volname/hostVolume}:{containerpath} {imageName/imageId}->example docker run -v ./aop/logger:sample {imageName/imageId}
+    b.docker compuse use create volume
+    #creating volumes but volume name any use in service only creared 
+    volumes:
+      #vol_name
+      sample:
+    centerl:
+    volumes:
+        #create into project folderName+app like metains
+      - sample:/app/aop/logger 
+      like metain  

@@ -1,5 +1,9 @@
 #This not project version docker version
 version: '3.8'
+#creating volumes but volume name any use in service only creared 
+volumes:
+  #vol_name
+  sample:
 #here always can use containser name add .but n8n, enginex,keyclock like third party service only make a conatiner
 #internal microserve mostly dicripce by docker image always direcly use docker.file
 #service name->it is every container each name gives.its give to constant name if container ip change also can use this service
@@ -10,6 +14,9 @@ services:
   #Each 
   #service name
   centerl:
+    volumes:
+        #create into project folderName+app like metains
+      - sample:/app/aop/logger
     #Warning:docker image file any change made you should change image version other vice not create image and container
     build: 
       context: .
