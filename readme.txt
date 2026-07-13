@@ -89,3 +89,10 @@ your application
         #create into project folderName+app like metains
       - sample:/app/aop/logger 
       like metain  
+   7.Bind mount 
+      a.bindMount using docker cli-> docker run -v "{POSIX-style-path of project folder}:{POSIX-style-path of container workspace folder}"
+      docker run -v "/d/Backend Projects/hirekite:/app"  
+   8.Docker Stage->Production Mode ,dev mode 
+   As Name Production Mode dev mode using as name and command 
+   FROM base as doc
+   docker build .  --target doc     
