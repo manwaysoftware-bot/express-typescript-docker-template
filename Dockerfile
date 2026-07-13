@@ -6,7 +6,7 @@
 
 #Project Docker Config
 # Use Node 18 alpine
-FROM node:18-alpine
+FROM node:18-alpine as base
 #create folder inside container.this folder inside project create inside container.is used for creating volume metains this
 WORKDIR /app
 
@@ -50,10 +50,15 @@ LABEL version=${version}
 #It is only recoommend run this app which port number run
 #docker run -p {portnumber}->Expose port numer keps recommeded
 EXPOSE ${port}
-# ENTRYPOINT ["node", "dist/app.js"]
 # RUN Command run in during image build.is mostly used installition.npm run dev
 # CMD is used container run like npm start ,npm run dev,npx nodemon
+# stage one->Development environment
+FROM base as dev
 CMD [ "npx","nodemon"]
+# stage two->Production environment
+FROM base as stage
+ENTRYPOINT ["node", "dist/app.js"]
+
 #docker build .->build the image
 #docker image->get the list of images and check
 #docker inspect{imageId/imagename}->give metadata of images
