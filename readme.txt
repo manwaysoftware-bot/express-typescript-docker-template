@@ -48,6 +48,8 @@ logger folder in aop folder automatically create bu wington if not create config
  #deployment
  #Warnning:before run docker file your typercript project must be compile or docker RUN npx tsc 
   docker command all FROM COPY RUN should be captial letter and also connct internet
+  #Warning:some dependency package json like not attched .so exclity add in docker file install.other wise container run error.
+  
   1.docker all run container use only local envirmentenal run only.same docker image same source and same account
 using differnt computer is act like different application run.like andriod app install your mobile standlonly work on 
 your application
@@ -92,6 +94,14 @@ your application
       - sample:/app/aop/logger 
       like metain  
    7.Bind mount 
+      //when bindMount local node_modules folder override container node_modules when container run
+      //so using -v {workdir/node_modules} this volume isolate the contner node module to local volume
+      //container run any folder created it when bind .it automaically reflectd local.
+      //Is not only docker any thing
+      //without this overide nodemoules container use this.so differnt env produce differn error.
+      //if delete nodmoules folder after bind mound always prod
+      docker run -p 1000:1000 -v "{projectfullpath}:{containerworkspacefolder}" -v {workdir/node_modules} {imageName/imageId}   
+      docker run -p 1000:1000 -v "/d/Backend Projects/hirekite:/app" -v /app/node_modules sha256:ba58cd5633d9c4179cbf3a0d933a6ad37ab26ec751d400c5c348838a9be5d2b0   
       a.bindMount using docker cli-> docker run -v "{POSIX-style-path of project folder}:{POSIX-style-path of container workspace folder}"
       docker run -v "/d/Backend Projects/hirekite:/app"     
    8.Docker Stage->Production Mode ,dev mode ->used

@@ -6,7 +6,7 @@
 
 #Project Docker Config
 # Use Node 18 alpine
-FROM node:18-alpine as base
+FROM node:18 as base
 #create folder inside container.this folder inside project create inside container.is used for creating volume metains this
 WORKDIR /app
 
@@ -28,7 +28,9 @@ RUN npm ci --only=production
 #is must to add typerscript complaion is must also come after 
 # ... after your npm ci command ...
 #here install tsc local down command use npx tsc .is lock use RUN tsc command .but in docker container not works 
+#This file not added package json file sepratly install without run error
 RUN npm install typescript
+RUN npx tsc --init
 
 COPY . /app/
 
