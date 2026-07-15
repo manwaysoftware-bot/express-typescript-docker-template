@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ragul": "npx tsc && node dist/sample.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^26.1.1",
+    "@types/ramda": "^0.32.0",
     "typescript": "^7.0.2"
   },
   "dependencies": {
@@ -21,6 +23,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "nodemon": "^3.1.14",
+    "ramda": "^0.32.0",
     "winston": "^3.19.0"
   }
 }
