@@ -10,7 +10,7 @@ app.use(resInterspector);
 
 app.get('/', (req: exp.Request, res: exp.Response) => {
     
-res.status(400).json("hello")
+res.status(200).json("hello")
     
 })
 
