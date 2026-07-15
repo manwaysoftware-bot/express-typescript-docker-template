@@ -1,3 +1,4 @@
+import * as R from "ramda"
 
 //Higgery order function
 export function testedfun(tested:boolean){
@@ -8,15 +9,12 @@ export function testedfun(tested:boolean){
 }
 }
 
-
-
-
 export let isUndefined=testedfun(false)((value:any)=>{
-    return (value==undefined || value===undefined)
+    return R.isNil(value)
 })
 
 export let isNull=testedfun(false)((value:any)=>{
-    return (value==null || value===null)
+    return R.isNil(value)
 })
 
 export let isUndefinedOrNull=testedfun (false)((value:any)=>{

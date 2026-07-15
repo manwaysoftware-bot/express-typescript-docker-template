@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ragul":"npx tsc && node dist/sample.js"
+    "ragul": "npx tsc && node dist/sample.js"
   },
   "keywords": [],
   "author": "",
@@ -13,11 +13,13 @@
   "type": "module",
   "devDependencies": {
     "@types/node": "^26.1.1",
+    "@types/ramda": "^0.32.0",
     "typescript": "^7.0.2"
   },
   "dependencies": {
     "@aspectjs/common": "^0.5.4",
     "@aspectjs/core": "^0.5.4",
+    "ramda": "^0.32.0",
     "winston": "^3.19.0"
   }
 }
