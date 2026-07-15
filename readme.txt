@@ -12,12 +12,19 @@ git init
     "test": "echo \"Error: no test specified\" && exit 1",
     "ragul" "npx tsc &&node dist/sample.js"->run using npm run ragul 
   }
+npx tsx {filName.ts}->ts command tools file direct run  
 npx tsc && node $dir$fileNameWithoutExt.js->add in coderunner config or  ts-node -directly run ts without transpile
 npm i @aspectj/core@ aspectj/common->Aop
 npm install wingston->logger
 add port,enviroment,developerName,servicename,version
 warning:typescript file inside cannot import another ts file
 warning:if use decorator @sample() dont write()
+create utils folder and utils.ts file create
+create higher oreder function using created tested function or not check in utils.ts file
+always here can use export keyword remove automatically that program stop .but this give compile error so that function used function test false autmatically blocke tested function
+installed ramda libary ->npm install ramda
+installed ramda libary type defintion->npm install --save-dev @types/ramda
+sepratly in util file create backed section connect frontend
 
 
 #express 
