@@ -12,6 +12,7 @@ git init
     "test": "echo \"Error: no test specified\" && exit 1",
     "ragul" "npx tsc &&node dist/sample.js"->run using npm run ragul 
   }
+npx tsx {filName.ts}->ts command tools file direct run  
 npx tsc && node $dir$fileNameWithoutExt.js->add in coderunner config or  ts-node -directly run ts without transpile
 npm i @aspectj/core@ aspectj/common->Aop
 npm install wingston->logger
