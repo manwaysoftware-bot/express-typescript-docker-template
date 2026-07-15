@@ -49,6 +49,65 @@ export let isEmpty = testedfun(false)(function isEmpty(value: any) {
 }) 
 
 
+//Backend  connected to frontend
+
+type RequestInterceptor = (request: Request) => Request | Promise<Request>;
+type ResponseInterceptor = (response: Response) => Response | Promise<Response>;
+
+class HttpReq extends Request {
+    // Registry for interceptors
+    private static requestInterceptors: RequestInterceptor[] = [];
+    private static responseInterceptors: ResponseInterceptor[] = [];
+
+    // Static methods to add interceptors globally
+    static addRequestInterceptor(interceptor: RequestInterceptor) {
+        this.requestInterceptors.push(interceptor);
+    }
+
+    static addResponseInterceptor(interceptor: ResponseInterceptor) {
+        this.responseInterceptors.push(interceptor);
+    }
+
+    constructor(url: string, options: RequestInit = {}) {
+        super(url, options);
+    }
+
+    async response(): Promise<Response> {
+        let request: Request = this;
+
+        // Run all request interceptors
+        for (const interceptor of HttpReq.requestInterceptors) {
+            request = await interceptor(request);
+        }
+
+        try {
+            let res = await fetch(request);
+
+            // Run all response interceptors
+            for (const interceptor of HttpReq.responseInterceptors) {
+                res = await interceptor(res);
+            }
+
+            if (!res.ok) throw res;
+            return res;
+        } catch (err) {
+            throw err;
+        }
+    }
+}
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
 
 
