@@ -1,18 +1,29 @@
 
+//Higgery order function
+export function testedfun(tested:boolean){
+     return function (func:Function):Function{
+ if(!tested) throw Error(`function ${func.name} is not tested`)
+ else 
+ return func
+}
+}
 
-let isUndefined=(value:any)=>{
+
+
+
+export let isUndefined=testedfun(false)((value:any)=>{
     return (value==undefined || value===undefined)
-}
+})
 
-let isNull=(value:any)=>{
+export let isNull=testedfun(false)((value:any)=>{
     return (value==null || value===null)
-}
+})
 
-let isUndefinedOrNull=(value:any)=>{
+export let isUndefinedOrNull=testedfun (false)((value:any)=>{
     return (isUndefined(value) || isNull(value))
-}
+})
 
-let isEmpty=(value:any)=>{
+export let isEmpty=testedfun (false)((value:any)=>{
     if(typeof value === "string"){
         return value.trim().length === 0;
     }
@@ -29,10 +40,13 @@ let isEmpty=(value:any)=>{
         return value.length === 0;
     }
     return isUndefinedOrNull(value)
-}
+} ) 
 
 
-console.log(isUndefined(null))
+isEmpty([])
+
+
+
 
 
 
