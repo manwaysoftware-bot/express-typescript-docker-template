@@ -72,7 +72,7 @@ class HttpReq extends Request {
         super(url, options);
     }
 
-    async response(): Promise<Response> {
+    async response(json: boolean = false): Promise<Response> {
         let request: Request = this;
 
         // Run all request interceptors
@@ -89,12 +89,28 @@ class HttpReq extends Request {
             }
 
             if (!res.ok) throw res;
+            if (json) return await res.json();
             return res;
         } catch (err) {
             throw err;
         }
     }
+
+    async json():Promise<any>{
+        return await this.response(true)
+    }
+
 }
+
+let req:HttpReq =new HttpReq("http://localhost:1000")
+
+HttpReq.addRequestInterceptor((request: Request) => {
+    console.log("Request interceptor")
+    return request
+})
+
+
+
 
 
 
