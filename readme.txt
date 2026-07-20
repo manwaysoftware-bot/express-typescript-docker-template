@@ -24,7 +24,8 @@ create higher oreder function using created tested function or not check in util
 always here can use export keyword remove automatically that program stop .but this give compile error so that function used function test false autmatically blocke tested function
 installed ramda libary ->npm install ramda
 installed ramda libary type defintion->npm install --save-dev @types/ramda
-sepratly in util file create backed section connect frontend
+sepratly in util file create backed section connect frontend .
+utils files are must be prototype
 
 
 #express 
