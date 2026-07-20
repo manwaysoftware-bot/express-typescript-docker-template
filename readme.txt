@@ -1,3 +1,4 @@
+##readme.txt rough formate have 
 #Type script Config
 npm init -y
 npm install -D typescript 
@@ -26,23 +27,4 @@ installed ramda libary type defintion->npm install --save-dev @types/ramda
 sepratly in util file create backed section connect frontend .
 utils files are must be prototype
 
-
-#express 
-npm install express->express instaltization
-npm install nodemon->Made changes without stop server
- "server": "nodemon --watch . --ignore dist --ext ts --exec \"npx tsc && node dist/app.js\""->package.json
- ->nodemon run on ts files also
- create nodemon.json file
-{
-  "watch": ["**/*.ts"],
-  "ext": "ts",
-  "ignore": ["node_modules", "coverage","dist"],
-  "exec": "npx tsc && node dist/app.js"
-}
-npx nodemon->run with nodemon ts
- npm install morgan->logging the hole express requires
-npm install axios->send request to keyclock server
-npm install dotenv->It get value from env helps
- 
- #deployment
 
